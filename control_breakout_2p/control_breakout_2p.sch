@@ -16,12 +16,12 @@ $EndDescr
 $Comp
 L Connector:DB25_Female_MountingHoles JTOP
 U 1 1 60C4D379
-P 6000 2500
-F 0 "JTOP" H 6180 2502 50  0000 L CNN
-F 1 "DB25_Female_MountingHoles" H 6180 2411 50  0000 L CNN
-F 2 "" H 6000 2500 50  0001 C CNN
-F 3 " ~" H 6000 2500 50  0001 C CNN
-	1    6000 2500
+P 5900 2500
+F 0 "JTOP" H 6080 2502 50  0000 L CNN
+F 1 "DB25_Female_MountingHoles" H 6080 2411 50  0000 L CNN
+F 2 "" H 5900 2500 50  0001 C CNN
+F 3 " ~" H 5900 2500 50  0001 C CNN
+	1    5900 2500
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -105,8 +105,6 @@ Wire Bus Line
 	800  800  2750 800 
 Wire Bus Line
 	2750 800  5200 800 
-Wire Bus Line
-	5200 800  5200 3700
 Connection ~ 2750 800 
 Entry Wire Line
 	800  1150 900  1250
@@ -288,6 +286,98 @@ Text Label 2900 2600 0    50   ~ 0
 proj15
 Text Label 2900 2700 0    50   ~ 0
 proj8
+Entry Wire Line
+	5200 1200 5300 1300
+Entry Wire Line
+	5200 2800 5300 2900
+Entry Wire Line
+	5200 1400 5300 1500
+Entry Wire Line
+	5200 3000 5300 3100
+Entry Wire Line
+	5200 1600 5300 1700
+Entry Wire Line
+	5200 3200 5300 3300
+Entry Wire Line
+	5200 1800 5300 1900
+Entry Wire Line
+	5200 3400 5300 3500
+Entry Wire Line
+	5200 2000 5300 2100
+Entry Wire Line
+	5200 3600 5300 3700
+Entry Wire Line
+	5200 2200 5300 2300
+Entry Wire Line
+	5200 1300 5300 1400
+Entry Wire Line
+	5200 2400 5300 2500
+Entry Wire Line
+	5200 1500 5300 1600
+Entry Wire Line
+	5200 2600 5300 2700
+Wire Wire Line
+	5300 1300 5600 1300
+Wire Wire Line
+	5300 2900 5600 2900
+Wire Wire Line
+	5300 1500 5600 1500
+Wire Wire Line
+	5300 1700 5600 1700
+Wire Wire Line
+	5300 1900 5600 1900
+Wire Wire Line
+	5300 2100 5600 2100
+Wire Wire Line
+	5300 2300 5600 2300
+Wire Wire Line
+	5300 2500 5600 2500
+Wire Wire Line
+	5300 2700 5600 2700
+Text Label 5350 1300 0    50   ~ 0
+proj1
+Text Label 5350 2900 0    50   ~ 0
+proj9
+Text Label 5350 1500 0    50   ~ 0
+proj2
+Text Label 5350 3100 0    50   ~ 0
+proj10
+Text Label 5350 1700 0    50   ~ 0
+proj3
+Text Label 5350 3300 0    50   ~ 0
+proj11
+Text Label 5350 1900 0    50   ~ 0
+proj4
+Text Label 5350 3500 0    50   ~ 0
+proj12
+Text Label 5350 2100 0    50   ~ 0
+proj5
+Text Label 5350 3700 0    50   ~ 0
+proj13
+Text Label 5350 2300 0    50   ~ 0
+proj6
+Text Label 5350 1400 0    50   ~ 0
+proj14
+Text Label 5350 2500 0    50   ~ 0
+proj7
+Text Label 5350 1600 0    50   ~ 0
+proj15
+Text Label 5350 2700 0    50   ~ 0
+proj8
+Wire Wire Line
+	5300 1600 5600 1600
+Wire Wire Line
+	5300 1400 5600 1400
+Wire Wire Line
+	5300 3100 5600 3100
+Wire Wire Line
+	5300 3300 5600 3300
+Wire Wire Line
+	5300 3500 5600 3500
+Wire Wire Line
+	5300 3700 5600 3700
+Wire Bus Line
+	5200 800  5200 3700
 Wire Bus Line
 	2750 800  2750 2700
 Wire Bus Line
