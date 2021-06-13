@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<HTML>
+<HEAD>
+   <META name="Author" content="Craig R. Hansen, pjhansen@alum.wpi.edu">
+   <!--#config errmsg="##ERROR!##"-->
+   <TITLE>MQP: Appendix D - VHDL Code</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#DDDDFF" TEXT="#000000" LINK="#0000AA" VLINK="#00AA00" HLINK="#AA0000">
+
+<BLOCKQUOTE>
+
+<B><I><FONT FACE="Verdana, Arial, Helvetica" SIZE="5">Appendix D:</FONT><BR>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE="4">VHDL Code</FONT></I></B>
+<HR size=2>
+
+
+<FONT FACE="Courier New" SIZE=2>--<BR>
+-- Projector Control System<BR>
+-- By:  Craig R. Hansen<BR>
+-- MQP - 1997/1998<BR>
+-- April 27, 1998<BR>
+--
+<P>
+LIBRARY ieee;<BR>
+USE ieee.std_logic_1164.ALL;<BR>
+USE ieee.std_logic_unsigned.ALL;
+<P>
+ENTITY projector IS<BR>
+PORT(door_s1:IN std_logic;<BR>
+door_s2:IN std_logic;<BR>
+arc_s1:IN std_logic;<BR>
+arc_s2:IN std_logic;<BR>
+motor_s1:IN std_logic;<BR>
+motor_s2:IN std_logic;<BR>
+exciter_s1:IN std_logic;<BR>
+exciter_s2:IN std_logic;<BR>
+override_s1:IN std_logic;<BR>
+override_s2:IN std_logic;<BR>
+changeover_s:IN std_logic;<BR>
+arc_c1:OUT std_logic;<BR>
+arc_c2:OUT std_logic;<BR>
+motor_c1:OUT std_logic;<BR>
+motor_c2:OUT std_logic;<BR>
+exciter_c1:OUT std_logic;<BR>
+exciter_c2:OUT std_logic;<BR>
+shutter_c1:OUT std_logic;<BR>
+shutter_c2:OUT std_logic;<BR>
+beep1:OUT std_logic;<BR>
+beep2:OUT std_logic;<BR>
+door_i1r:OUT std_logic;<BR>
+door_i1g:OUT std_logic;<BR>
+door_i2r:OUT std_logic;<BR>
+door_i2g:OUT std_logic;<BR>
+arc_i1r:OUT std_logic;<BR>
+arc_i1g:OUT std_logic;<BR>
+arc_i2r:OUT std_logic;<BR>
+arc_i2g:OUT std_logic;<BR>
+motor_i1r:OUT std_logic;<BR>
+motor_i1g:OUT std_logic;<BR>
+motor_i2r:OUT std_logic;<BR>
+motor_i2g:OUT std_logic;<BR>
+exciter_i1r:OUT std_logic;<BR>
+exciter_i1g:OUT std_logic;<BR>
+exciter_i2r:OUT std_logic;<BR>
+exciter_i2g:OUT std_logic;<BR>
+changeover_i1r:OUT std_logic;<BR>
+changeover_i1g:OUT std_logic;<BR>
+changeover_i2r:OUT std_logic;<BR>
+changeover_i2g:OUT std_logic;<BR>
+proj1:OUT std_logic;<BR>
+proj2:OUT std_logic;<BR>
+override_i1r:OUT std_logic;<BR>
+override_i1g:OUT std_logic;<BR>
+override_i2r:OUT std_logic;<BR>
+override_i2g:OUT std_logic;<BR>
+shutter_i1r:OUT std_logic;<BR>
+shutter_i1g:OUT std_logic;<BR>
+shutter_i2r:OUT std_logic;<BR>
+shutter_i2g:OUT std_logic);<BR>
+END projector;
+<P>
+ARCHITECTURE design OF projector IS<BR>
+BEGIN<BR>
+door_i1g &lt;= '1' WHEN door_s1 = '1' ELSE '0';<BR>
+door_i1r &lt;= '1' WHEN door_s1 = '0' ELSE '0';<BR>
+door_i2g &lt;= '1' WHEN door_s2 = '1' ELSE '0';<BR>
+door_i2r &lt;= '1' WHEN door_s2 = '0' ELSE '0';
+<P>
+beep1 &lt;= '1' WHEN door_s1 = '1' ELSE '0';<BR>
+beep2 &lt;= '1' WHEN door_s2 = '1' ELSE '0';
+<P>
+arc_i1g&lt;= '1' WHEN arc_s1 = '1' ELSE '0';<BR>
+arc_i1r&lt;= '1' WHEN arc_s1 = '0' ELSE '0';<BR>
+arc_i2g&lt;= '1' WHEN arc_s2 = '1' ELSE '0';<BR>
+arc_i2r&lt;= '1' WHEN arc_s2 = '0' ELSE '0';
+<P>
+motor_i1g &lt;= '1' WHEN motor_s1 = '1' ELSE '0';<BR>
+motor_i1r &lt;= '1' WHEN motor_s1 = '0' ELSE '0';<BR>
+motor_i2g &lt;= '1' WHEN motor_s2 = '1' ELSE '0';<BR>
+motor_i2r &lt;= '1' WHEN motor_s2 = '0' ELSE '0';
+<P>
+exciter_i1g &lt;= '1' WHEN exciter_s1 = '1' ELSE '0';<BR>
+exciter_i1r &lt;= '1' WHEN exciter_s1 = '0' ELSE '0';<BR>
+exciter_i2g &lt;= '1' WHEN exciter_s2 = '1' ELSE '0';<BR>
+exciter_i2r &lt;= '1' WHEN exciter_s2 = '0' ELSE '0';
+<P>
+changeover_i1g &lt;= '1' WHEN changeover_s = '0' ELSE '0';<BR>
+changeover_i1r &lt;= '1' WHEN changeover_s = '1' ELSE '0';<BR>
+changeover_i2g &lt;= '1' WHEN changeover_s = '1' ELSE '0';<BR>
+changeover_i2r &lt;= '1' WHEN changeover_s = '0' ELSE '0';
+<P>
+proj1 &lt;= '1' WHEN changeover_s = '0' ELSE '0';<BR>
+proj2 &lt;= '1' WHEN changeover_s = '1' ELSE '0';
+<P>
+override_i1g &lt;= '1' WHEN override_s1 = '0' ELSE '0';<BR>
+override_i1r &lt;= '1' WHEN override_s1 = '1' ELSE '0';<BR>
+override_i2g &lt;= '1' WHEN override_s2 = '0' ELSE '0';<BR>
+override_i2r &lt;= '1' WHEN override_s2 = '1' ELSE '0';
+<P>
+shutter_i1g &lt;= '1' WHEN changeover_s = '0' ELSE '0';<BR>
+-- AND motor_s1 = '1');<BR>
+shutter_i1r &lt;= '1' WHEN changeover_s = '1' ELSE '0';<BR>
+-- OR motor_s1 = '0');<BR>
+shutter_i2g &lt;= '1' WHEN changeover_s = '1' ELSE '0';<BR>
+-- AND motor_s2 = '1');<BR>
+shutter_i2r &lt;= '1' WHEN changeover_s = '0' ELSE '0';<BR>
+-- OR motor_s2 = '0');
+<P>
+arc_c1 &lt;= '1';<BR>
+arc_c2 &lt;= '1';
+<P>
+motor_c1 &lt;= '1';<BR>
+motor_c2 &lt;= '1';
+<P>
+exciter_c1 &lt;= '1' WHEN changeover_s = '0' ELSE '0';<BR>
+exciter_c2 &lt;= '1' WHEN changeover_s = '1' ELSE '0';
+<P>
+shutter_c1 &lt;= '1' WHEN changeover_s = '0' ELSE '0';<BR>
+shutter_c2 &lt;= '1' WHEN changeover_s = '1' ELSE '0';
+<P>
+
+--PROCESS(clk)<BR>
+--VARIABLE i: integer RANGE 0 TO 10;<BR>
+--BEGIN<BR>
+--IF clk'EVENT AND clk = '1' THEN<BR>
+--i := i+1;<BR>
+--  IF i = 10 THEN<BR>
+--i := 0;<BR>
+--one_hz &lt;= NOT one_hz;<BR>
+--   END IF;<BR>
+--END IF;<BR>
+--END PROCESS;<BR>
+
+END design;<BR>
+</FONT>
+
+</BODY>
+</HTML>

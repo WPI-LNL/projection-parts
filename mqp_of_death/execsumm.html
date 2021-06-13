@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<HTML>
+<HEAD>
+   <META name="Author" content="Craig R. Hansen, pjhansen@alum.wpi.edu">
+   <!--#config errmsg="##ERROR!##"-->
+   <TITLE>MQP: Executive Summary</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#DDDDFF" TEXT="#000000" LINK="#0000AA" VLINK="#00AA00" HLINK="#AA0000">
+
+<BLOCKQUOTE>
+
+<B><I><FONT FACE="Verdana, Arial, Helvetica" SIZE="5">Executive Summary</FONT></B></I><BR>
+<HR size=2>
+
+<P ALIGN="JUSTIFY">My project was completed in conjunction with the WPI Lens and Lights Club, an undergraduate student organization at Worcester Polytechnic Institute.  For over 35 years, Lens and Lights has operated motion picture projectors, showing movies for the WPI community.  I served as Head Projectionist in the club from 1996-1998, and decided to make motion picture projection easier by developing, designing, and implementing a projector control system, for use by the club.</P>
+
+<P ALIGN="JUSTIFY">At WPI, there are two motion picture projectors for one screen, unlike most professional theaters which have only one projector per screen.  With two projectors, each with a film capacity of 40 minutes, there is a need to switch between the two during a movie.  The process of switching between two projectors is called a changeover, and this task usually takes a number of people to successfully complete.</P>
+
+<P ALIGN="JUSTIFY">The main objective of my project was to semi-automate the changeover process, so less people are required.  A secondary objective was to create a status display system, which would alert the projectionist to any malfunctioning equipment, and indicate the status of the vital systems in the projectors.  These systems include the motor, arc lamp, exciter lamp (for reading the sound off the film), shutters, projector door, and the changeover switch.  Such a status display will allow the projectionist to determine if the equipment is operating within specifications and help diagnose small problems before they become equipment damaging.</P>
+
+<P ALIGN="JUSTIFY">In order to determine what projectionists were looking for in a projector control system, I conducted interviews with projectionists in professional theaters, as well as projectionists at WPI.  The focus of my interviews centered around the following questions:</P>
+<OL>
+
+<OL>
+
+<P ALIGN="JUSTIFY"><LI>How many projectors are in use per screen?</LI></P>
+<P ALIGN="JUSTIFY"><LI>How are changeovers currently performed?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Is there a status display system currently in use at your theater?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Is there an automatic changeover system currently in use?  If so, what is it capable of controlling?  Is it safe?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Are there any safeguards in place to ensure a projectionist is not injured during projector operation?</LI></P></OL>
+</OL>
+
+
+<P ALIGN="JUSTIFY">After conducting interviews, I spent a great deal of time analyzing the current situation at WPI, as well as studying the schematics of the current sound system and the projectors.  I determined that the projector control system would consist of a main status display unit mounted on the sound rack in the projection booth, and an auxiliary control box mounted on each projector.  The main status display unit can be seen from almost anywhere in the booth, and alerts the projectionist as to the status of the systems in the projector.  The auxiliary control box allows the projectionist to control the Dolby Cinema Processor 55 (CP55) and also override the automation system.  Control of the CP55 allows the projectionist to mute the sound or choose a sound format; either 16mm film, 35mm film, 70mm film, or the CD player.</P>
+
+<P ALIGN="JUSTIFY">I decided to design a VHDL-controlled system using an Altera chip.  This chip controls a series of relays, each connected to the system I was trying to control.  The input to the Altera chip is based on a number of sensors I developed, which monitor the systems in the projector.  Based on these inputs, a series of LEDs would be illuminated indicating the status of each system.  The Altera chip would also shut down the systems in the event of a malfunction, however at no time would the arc lamp or motor be automatically started up.  I made this decision based on numerous safety concerns.</P>
+
+<P ALIGN="JUSTIFY">The status display unit consists of a series of red and green LEDs for each projector.  Each set of LEDs represents one system (i.e., the motor, arc lamp, etc.).  If the system is on and functioning properly, the green LED is illuminated, otherwise the red one lights.  The status display unit also indicates which projector is currently &quot;active&quot; (or changedover), and indicated when one of the projectors has an active override.</P>
+
+<P ALIGN="JUSTIFY">The auxiliary control box consists of three illuminated pushbuttons for controlling the CP55 and displaying the current sound mode.  There are also three mini toggle switches used for overriding the sound changeover (which projector the sound is being read from), the status of the shutter (open or closed), and the status of the exciter lamp (active or idle).  Each switch has a corresponding LED next to it which illuminated when an override is activated.</P>
+<P ALIGN="JUSTIFY">&#9;</P>
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

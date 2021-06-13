@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<HTML>
+<HEAD>
+   <META name="Author" content="Craig R. Hansen, pjhansen@alum.wpi.edu">
+   <!--#config errmsg="##ERROR!##"-->
+   <TITLE>MQP: Chapter 5 - The New System</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#DDDDFF" TEXT="#000000" LINK="#0000AA" VLINK="#00AA00" HLINK="#AA0000">
+
+<BLOCKQUOTE>
+
+<B><I><FONT FACE="Verdana, Arial, Helvetica" SIZE="5">Chapter 5:</FONT><BR>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE="4">The New System</FONT></I></B>
+<HR size=2>
+
+<P ALIGN="JUSTIFY">The new projector control system allows for easy monitoring and control of the motion picture projectors in Perreault Hall.  A block diagram of the system is shown in <I>Figure 5.1</I>.  The main part of the system is mounted on the existing sound rack in the projection booth and contains a series of red and green LEDs (a set for each projector) which indicates the current status of a number of systems on the projectors.  For example, if the motor is off, the red LED which corresponds to the motor is lit.  If the motor is on, the green LED is lit.  Along with these visual cues, there is an auditory cue, which will alert the projectionist if there is a system malfunction or if something has gone wrong.  The purpose of this system is to make motion picture projection easier with less people and to make the monitoring of the systems easier.  This system also allows three manual overrides which allow  a projectionist to open both shutters at the same time.  Believe it or not, this was not possible before, yet is nearly essential when focusing two projectors.</P>
+
+<P ALIGN="JUSTIFY">The unique thing about my projector control system is that it is capable of controlling and monitoring two motion picture projectors.  Since almost every commercial movie theater in the world uses a platter system and only one projector per screen, there is little market out there for a dual-projector control system, which led to a great lack of information surrounding this topic.  Even when I contacted Boston Light and Sound, Inc. (the company which services our projectors), they did not have all the answers I was looking for.</P>
+
+<P ALIGN="JUSTIFY">Below is an explanation of each of the systems I installed on the projectors.  About halfway through my project, I decided that it was no longer necessary to monitor the shutter or the emergency trip devices.  Unfortunately, I also found it to be too difficult to properly monitor the exhaust fans.</P>
+
+<B><I><P ALIGN="JUSTIFY">5.1&#9;Arc Sensor</P>
+</B></I><P ALIGN="JUSTIFY">There needs to be a way for a projectionist to be able to determine whether or not the arc lamp is turned on, aside from just walking up to the arc house and looking. There are times when the projectionist will be across the room and need to know if &quot;all systems are go.&quot;  In order to monitor the arc lamp, I decided to use a CDS cell.  This cell will alter in resistance value as the light level inside the arc house changes.  When the arc lamp is on, the resistance of the cell is 10k<FONT FACE="Symbol">&#87;</FONT>
+ and 100k<FONT FACE="Symbol">&#87;</FONT>
+ when the arc is off.</P>
+
+<B><I><P ALIGN="JUSTIFY">5.2&#9;Motor Sensor</P>
+</B></I><P ALIGN="JUSTIFY">For my system to determine whether or not the shutter may be opened, it needs to know whether or not the motor is running (for safety reasons, it would be unwise to open the shutter if the motor was not running, especially if the arc lamp is on).  To determine whether or not the motor was running, I installed a switch on the main drive shaft of the projector motor.  When the shaft is spinning, the force created makes a device on the drive shaft flange out.  This device, when flanged out, triggers my motor sensor switch.  If, for whatever reason, this switch is not triggered, my system will not allow the shutter to be opened.</P>
+
+<B><I><P ALIGN="JUSTIFY">5.3&#9;Exciter Sensor</P>
+</B></I><P ALIGN="JUSTIFY">The exciter lamps in the projectors have three different states they can be in.  They can be on, off, or dimmed (partial power).  To monitor the current state of the exciter lamps, I installed a CDS cell on the back of the optical sound unit, just behind the exciter lamp.  The purpose of this cell is to determine whether the exciter lamp is dimmed or at full power.  Since the optical sound features of the projector will not properly function without the exciter lamp at full power, the sensor will return the same result if the exciter lamp is off or dimmed.</P>
+
+<B><I><P ALIGN="JUSTIFY">5.4&#9;Door Sensor</P>
+</B></I><P ALIGN="JUSTIFY">During normal operation, the doors on the projector should be closed.  If, for some reason, one of the doors is opened while the motor is running, an auditory warning will be activated until the door is closed.  A magnetic sensor was used to accomplish this.  Much like the sensors used in burglar alarms, a magnet was mounted on the door itself, and the switch (which is triggered by the magnet) was mounted in the projector.</P>
+
+<B><I><P ALIGN="JUSTIFY">5.5&#9;Arc Control</P>
+</B></I><P ALIGN="JUSTIFY">In the event of an emergency, the arc lamp needs to be turned off, preferably automatically.  To accomplish this, a logic-controlled relay was used.  This relay will either allow the arc lamp to be turned on manually, will not allow the arc lamp to be turned on manually, or will turn off the arc lamp automatically.  For safety reasons, the arc lamp is never able to turn on automatically.</P>
+
+
+<H4 align=center>[[image goes here]]</H4>
+
+<FONT SIZE=2><P ALIGN="CENTER">Figure 5.5.1 – Arc Control Circuit Block Diagram</P>
+</FONT><B><I><P ALIGN="JUSTIFY">5.6&#9;Motor Control</P>
+</B></I><P ALIGN="JUSTIFY">Similar to the arc control, the motor control is basically a relay.  This relay was interfaced with the emergency stop switch.  If a problem is detected by the system, then the motor relay is opened, thus triggering the emergency stop switch on the projector.</P>
+
+<H4 align=center>[[image goes here]]</H4>
+
+
+<FONT SIZE=2><P ALIGN="CENTER">Figure 5.6.1 – Motor Control Circuit Block Diagram</P>
+</FONT>
+
+<B><I><P ALIGN="JUSTIFY">5.7&#9;Exciter Control</P>
+</B></I><P ALIGN="JUSTIFY">Unfortunately, my system cannot control the exciter lamps if they are switched off, due to the fact that a specialized power supply (which I was not permitted to alter) must be used for the exciter lamps.  Therefore, the system can only control whether or not the exciter lamp is dimmed or at full power.  In order for  the system to successfully control the exciter lamps, they must be switched on from the main power supply on the sound rack.  Unlike the relays used for the shutter, arc, and motor, the relays used for the exciter lamps are DPDT.  This was required because the relays need to switch between the full power supply and a partial power supply.</P>
+
+
+<H4 align=center>[[image goes here]]</H4>
+
+
+<FONT SIZE=2><P ALIGN="CENTER">Figure 5.7.1 – Exciter Control Circuit Block Diagram</P>
+</FONT>
+
+<B><I><P ALIGN="JUSTIFY">5.8&#9;Shutter Control</P>
+</B></I><P ALIGN="JUSTIFY">The shutters need to be automatically controlled during a changeover.  They also need to be closed in the event of an emergency.  To control the shutters, I used simple logic-controlled relays.</P>
+
+<P ALIGN="JUSTIFY">To control the solenoid which opens and closes the shutter, I will be using a simple contact relay which, when 5 volts is applied at the input, will allow the existing supply of 100v to be applied across the solenoid.  I will use a similar design on the exciter lamps.  When there is no voltage across the relay, the exciter lamps will on full.  However, if 5 volts are applied across the relay, the relay will put 5 volts across the exciter lamp (which normally operates at approximately 10 volts).</P>
+
+<H4 align=center>[[image goes here]]</H4>
+
+
+<P ALIGN="CENTER">Figure 5.8.1 – Shutter Control Circuit Block Diagram</P>
+</FONT>
+
+
+<B><I><P ALIGN="JUSTIFY">5.9&#9;Changeover Control</P>
+</B></I><P ALIGN="JUSTIFY">The changeover between the two projectors is controlled from one switch, located on each projector.  This switch sends a signal to the Altera chip, which in turn sends a logic high (or a logic low, depending on which projector is being selected) to the relay connected to the changeover control leads on the CP55.  The following block diagram shows the interface to the CP55 for the changeover control system:</P>
+
+<H4 align=center>[[image goes here]]</H4>
+
+<FONT SIZE=2><P ALIGN="CENTER">Figure 5.9.1 – Changeover Control Circuit Block Diagram</P></FONT>
+
+<B><I><P ALIGN="JUSTIFY">5.10&#9;Dolby Cinema Processor 55 Control</P>
+</B></I><P ALIGN="JUSTIFY">Mounted on each projector is an auxiliary control box.  This control box allows a projectionist to remotely control the Dolby Cinema Processor 55 (CP55).  The CP55 is the main sound processor located on the sound rack in the booth and allows the projectionist to select a variety of film sound formats and sound sources.  The auxiliary control box makes use of the 5 most frequently used functions of the CP55.  A projectionist may select to hear sound from the 16mm projectors, 35mm optical sound, 70mm magnetic sound, or the compact disc player.  The sound may also be muted.</P>
+
+<P ALIGN="JUSTIFY">The 35mm optical sound button reads sound from the 35mm/70mm projectors, using <I>Dolby Stereo With Surround</I> processing.  The 70mm magnetic sound button reads sound from the Dolby Magnetic Preamplifier Unit 1 (MPU-1).  At WPI, there is only the capability of reading magnetic soundtracks from 70mm film, as 35mm film with magnetic soundtracks are no longer produced.  The MPU-1 is responsible for reading the magnetic soundtracks from the film.  The other 3 buttons are fairly simple in function.  They just select the audio source or function (16mm, CD player, Mute).</P>
+
+<P ALIGN="JUSTIFY">Below is a block diagram of the auxiliary control box.</P>
+
+<B><FONT SIZE=2><P ALIGN="JUSTIFY">Figure 5.10.1 – Auxiliary Control Box Block Diagram</P>
+</B></FONT>
+<P></P>
+<B><I><P ALIGN="JUSTIFY">5.11&#9;Manual Overrides</P>
+</B></I><P ALIGN="JUSTIFY">The top half of the auxiliary control box deals with the interface to the CP55.  The bottom half, however, contains three manual override switches.  These are a series of three, 3-way switches which allow a projectionist to override the status of the CP55, exciter lamps, or the shutter.  If the switch is in the middle position, then this is considered normal mode, and control is given to the Altera chip.  However, if the switch is flipped to the left or to the right, then a manual override is executed.</P>
+
+<P ALIGN="JUSTIFY">For the shutter manual override, if the switch is in the leftmost position, then the shutter is forced to the open position.  Note, that this will not function if the motor is not running.  The shutter will never open unless the motor to the projector is running.  This is to prevent the accidental burning of film.  If the switch is in the rightmost position, then the shutter is forced to the closed position.  Such an override is useful when a projectionist wishes to align the two projectors or during other focusing tests.</P>
+
+<P ALIGN="JUSTIFY">For the exciter lamp override, if the switch is in the leftmost position, then the exciter lamp is forced into bright (operating) mode.  If the switch is in the rightmost position, then the exciter lamp is forced to dimmed (idle) mode.  This override may be useful during testing or calibration of the exciter lamps or sound heads.</P>
+
+<P ALIGN="JUSTIFY">Finally, the override for the CP55 will allow a projectionist to force the sound to be read from one of the projectors.  This is useful when the changeover system fails, or when a projectionist wishes to calibrate the sound heads or processors.  A projectionist may conduct audio tests without the worry of the projector being changed over in the middle of a test.</P>
+
+<P ALIGN="JUSTIFY">Each manual override has a corresponding LED mounted on the auxiliary control box.  If the LED is illuminated, this will alert the projectionist that a manual override is currently being used, and normal operation of the projectors may not be possible.</P>
+
+
+<B><I><P ALIGN="JUSTIFY">5.12&#9;Recommendations and Future Enhancements</P>
+</B></I><P ALIGN="JUSTIFY">I ran into many obstacles during the course of my project work.  My first big problem was finding the best way to interface my logic-based system with equipment that was over 35 years old and completely analog-based.  I spent many long hours reading the original manual to the projectors and often found the information useless.  One recommendation I would definitely have is make sure you have adequate documentation for any existing system you are working with.  I often found myself using trial and error to determine where wires inside the projector lead, and what they were for.  I would also recommend that people not work alone on a project like this.  There were a countless number of times where I found myself overwhelmed with work that needed to be done, and nobody to help ease the load.</P>
+
+<P ALIGN="JUSTIFY">There is still room for future enhancements to my system.  For example, I designed the interface to the CP55 and the auxiliary control boxes so an infinite number of interfaces and control boxes could be added.  If a projectionist wished to have a wall mounted control box in the projection booth, they would just need to replicate one of the auxiliary control boxes and install it.</P>
+
+<P ALIGN="JUSTIFY">Another enhancement would be to add a temperature-sensitive sensor to the aperture plate.  The aperture place is water cooled, and the projectionist must turn on the water prior to using the projector, or the aperture gets too hot and could burn the projectionist or damage the film.  By adding a temperature sensor, the projectionist could monitor the status of the water by determining whether or not the plate is cool enough.</P>
+
+<P ALIGN="JUSTIFY">There are also chances to alter the VHDL code on the Altera chip to better suit changing needs of projectionists.  I chose the Altera VHDL design precisely for this reason, because it is upgradable.  If a means for monitoring the fans, emergency trip devices, or the shutter is to be developed in the future, the VHDL code will need to be slightly altered to accommodate this change.</P>
+
+
+</BODY>
+</HTML>

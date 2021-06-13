@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+"http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<HTML>
+<HEAD>
+   <META name="Author" content="Craig R. Hansen, pjhansen@alum.wpi.edu">
+   <!--#config errmsg="##ERROR!##"-->
+   <TITLE>MQP: Chapter 3 - Projector Analysis</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#DDDDFF" TEXT="#000000" LINK="#0000AA" VLINK="#00AA00" HLINK="#AA0000">
+
+<BLOCKQUOTE>
+
+<B><I><FONT FACE="Verdana, Arial, Helvetica" SIZE="5">Chapter 3:</FONT><BR>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE="4">Projector Analysis</FONT></I></B>
+<HR size=2>
+
+<P ALIGN="JUSTIFY">My goal in this project is to develop a system by which projectionists at Worcester Polytechnic Institute may check the status of the systems necessary to project a motion picture.  Such a status display will allow the projectionist to determine if the equipment is operating within specifications and help diagnose small problems before they become equipment damaging.  I will also observe the steps taken to project a motion picture and make decisions as to what is important in a status display and semi-automatic changeover system.</P>
+
+<B><I><P ALIGN="JUSTIFY">3.1&#9;Interviews</P>
+</B></I><P ALIGN="JUSTIFY">Since I did not know what other projectionists were looking for in a control system, I conducted informal interviews with projectionists from Worcester area movie theaters and a movie theater from back home in Connecticut.  The results I obtained were not surprising and seem to agree with what projectionists at WPI had said.  The general consensus is that automation equipment that doesn't start the projection equipment is good and a display system which will monitor the status of the equipment is also good.</P>
+
+<P ALIGN="JUSTIFY">To help guide the development of the system, I began conducting interviews with area projectionists as I began laying out my system.  The purpose of these interviews was to get a look at the equipment currently in use at theaters and also determine what projectionists want in a projector control system.  For example, I asked a projectionist friend of mine what type of systems he would like to see monitored at any given time.  From the information gathered from my interviews, I made decisions regarding what to include in the system.</P>
+
+<P ALIGN="JUSTIFY">In an effort to gather some professional opinions, I interviewed a small number of motion picture projectionists from New England and Washington, DC.  <I>Table 3.1.1</I> below shows the interviewees:</P>
+<B>
+<FONT SIZE=2><P ALIGN="JUSTIFY">Table 3.1.1   Interviewees</P></B></FONT>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=590>
+<TR><TD WIDTH="28%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Name</B></FONT></TD>
+<TD WIDTH="44%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Theater</B></FONT></TD>
+<TD WIDTH="29%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Location</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P ALIGN="LEFT">Leanne Rathenport</TD>
+<TD WIDTH="44%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Vernon Cine 1 &amp; 2</TD>
+<TD WIDTH="29%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Vernon, CT</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">William Idleson</TD>
+<TD WIDTH="44%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Showcase Cinemas</TD>
+<TD WIDTH="29%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">East Windsor, CT</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Gary Adams</TD>
+<TD WIDTH="44%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Cineplex Odion</TD>
+<TD WIDTH="29%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Washington, DC</TD>
+</TR>
+<TR><TD WIDTH="28%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Jeremy Medicus</TD>
+<TD WIDTH="44%" VALIGN="TOP">
+<P ALIGN="LEFT">White City, Showcase Downtown</TD>
+<TD WIDTH="29%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Worcester, MA</TD>
+</TR>
+</TABLE>
+
+
+<P ALIGN="JUSTIFY">There are many different types of projectors and sound systems manufactured for theater use.  I chose projectionists to interview based on equipment similarities to that of the equipment Worcester Polytechnic Institute has in the projection booth in Perreault Lecture Hall in Fuller Labs.  Design of my interview questions focused primarily on the following questions:</P>
+<OL>
+
+<OL>
+
+<P ALIGN="JUSTIFY"><LI>Does your theater utilize any type of automation system?</LI></P>
+<P ALIGN="JUSTIFY"><LI>If so, what type of system is in place and what is controlled?</LI></P>
+<P ALIGN="JUSTIFY"><LI>How many projectors are used per screen?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Do you currently need to perform any type of changeover during a showing?</LI></P>
+<P ALIGN="JUSTIFY"><LI>How is equipment currently monitored?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Is there any type of status-display system currently in use?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Are there any safeguards in place to ensure a projectionist is not injured during projector operation?</LI></P>
+<P ALIGN="JUSTIFY"><LI>Are there any plans to add to or enhance your projector control system?</LI></P></OL>
+</OL>
+
+
+<P ALIGN="JUSTIFY">Following are the results from each of my interview questions.</P>
+<I>
+<P ALIGN="JUSTIFY">Question 1)  Does your theater utilize any type of automation system?</P>
+</I>
+<P ALIGN="JUSTIFY">With the exception of Vernon Cine 1&amp;2, all of the theaters utilized some form of automation equipment.  Vernon Cinema did not require automation equipment because they only had two screens and a projectionist on duty at all times.</P>
+
+<I><P ALIGN="JUSTIFY">Question 2)  If so, what type of system is in place and what is controlled?</P>
+</I><P ALIGN="JUSTIFY">In both Showcase Cinemas and in the White City theater, specific information was not available on the brand of equipment, but the equipment controlled the house lighting system, the sound system, the arc lamp, and the shutter in the projector.  The system could be programmed to change the state of any of the above systems whenever the sensor was tripped.  Each projector had a sensor mounted on it that would trigger when a piece of foil tape (placed on the film by the projectionist) went through the projector.</P>
+
+<I><P ALIGN="JUSTIFY">Question 3)  How many projectors are used per screen?</P>
+</I><P ALIGN="JUSTIFY">In every theater, one projector was used per screen.  These projectors used a platter system.  With the exception of Jeremy Medicus (White City), who is a former projectionist in Lens and Lights, none of the projectionists had operated a two-projector setup.</P>
+
+<I><P ALIGN="JUSTIFY">Question 4)  Do you currently need to perform any type of changeover during a showing?</P>
+</I><P ALIGN="JUSTIFY">Each theater said no.</P>
+
+<I>
+<P ALIGN="JUSTIFY">Question 5)  How is equipment currently monitored?</P>
+</I><P ALIGN="JUSTIFY">The status of the projector was monitored by a safety switch (that is part of the projector itself).  When film broke, an alarm would sound in the booth.  Since the theaters I visited have one large booth with multiple projectors, the projectionist can usually spot a projector failure immediately.  Unfortunately, if the sound system fails on any given projector, the projectionist usually has to wait for an audience member to complain before he/she is aware of the problem (with the exception of Vernon Cine 1&amp;2, where there were speakers in the booth which allowed the projectionist to listen to either projector).</P>
+
+<I><P ALIGN="JUSTIFY">Question 6)  Is there any type of status-display system currently in use?</P>
+</I><P ALIGN="JUSTIFY">In the Showcase Cinemas in East Windsor, there were a few new projectors with motor and lamp status displays built into the projector, however there was no way to monitor these systems from a remote location (such as a sound rack).   The other theaters had no such devices, however all the projectionists wished there was some way to monitor each projector from one location so he/she wouldn't have to run around the booth checking each machine from time to time.</P>
+
+<I><P ALIGN="JUSTIFY">Question 7)  Are there any safeguards in place to ensure a projectionist is not injured during projector operation?</P>
+</I><P ALIGN="JUSTIFY">Every projector has an emergency stop mechanism.  This will stop the projector in case of a film break.  It also does not allow the projector to be started when the projectionist was threading up film.</P>
+
+<I><P ALIGN="JUSTIFY">Question 8)  Are there any plans to add to or enhance your projector control system?</P>
+</I><P ALIGN="JUSTIFY">Everybody I talked to was either in no position answer this type of question or felt as if theater budgets for projector enhancements were being cut.  A person at the Showcase Cinemas in East Windsor, CT explained theaters will dump loads of cash into making the theater look good before they'll worry about something that will make the movie look good.</P>
+
+<P ALIGN="JUSTIFY">The time I had with the projectionist was minimal due to their busy schedule.  I gathered some valuable information and learned that I am on the right track when it comes to what my system needed to include.  I analyzed the results of the personal interviews and developed a set of recommendations for a status display system.</P>
+
+<B><I><P ALIGN="JUSTIFY">3.2&#9;System Design</P>
+</B></I><P ALIGN="JUSTIFY">The system I plan to design will incorporate a VHDL-based logic system to control different aspects of movie projection.  As more research into the types of control systems and status display systems is completed, I will determine which direction my development will take. Currently, there are problems which can be attributed to user error or equipment failure.  The following table summarizes what things were like prior to this project, and what they are like now:</P>
+<B>
+<FONT SIZE=2><P ALIGN="JUSTIFY">Table 3.2.1 – Old System vs. New System</P></B></FONT>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=590>
+<TR><TD WIDTH="20%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">What</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Old System</B></FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">New System</B></FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Reason(s)</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Motor Control</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>On / Off (Manual)</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>On / Off / Automatic Off</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Automatic Off (Altera controlled) provides added safety during emergencies</FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Arc Control</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>On / Off (Manual)</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>On / Off / Automatic Off</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Automatic Off (Altera controlled) provides added safety during emergencies</FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Shutter Control</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>Controlled with Sound Changeover</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Open / Closed / Manual</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Needed to be able to open both or force one closed.</FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Exciter Control</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>None</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Bright / Dim</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Save bulb life, protect film from melting</FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Changeover Cntrl</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>One Switch</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>One Switch</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Easy and Convenient</FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Remote Control of CP55</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>None</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P ALIGN="CENTER">Mounted on each projector</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Convenient, fewer people needed to run a movie.</FONT></TD>
+</TR>
+<TR><TD WIDTH="20%" VALIGN="TOP">
+<FONT SIZE=2><P>Status Display</FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<FONT SIZE=2><P>None</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P>Mounted on sound rack</FONT></TD>
+<TD WIDTH="28%" VALIGN="TOP">
+<FONT SIZE=2><P ALIGN="CENTER">Needed centralized monitoring of systems. VHDL provides status of equipment.</FONT></TD>
+</TR>
+</TABLE>
+
+
+<P ALIGN="JUSTIFY">Before designing an interface to an existing system, one must fully analyze the existing system.  When analyzing an existing system, one must search for weaknesses and locate possible areas of improvement.  Since the motion picture projectors are over 40 years old, there are many areas where the current systems can be improved and upgraded.  However, when dealing with systems that old, there are simple technological differences that need to be worked around.  For example, most of the systems in the projector are mechanical, rather than electronic, so finding a way to interface with those systems is essential in the design of a new projector control system.</P>
+
+<P ALIGN="JUSTIFY">I spent a great deal of time analyzing the current situation here at WPI and also studying the schematics of the current sound system and motion picture projectors.  Prior to the installation of my system, projectionists at WPI had the capability of switching over the sound and controlling the shutter all in one switch.  While this may make it easy to project a movie, it makes it very difficult to diagnose a problem.  For example, if a projectionist only wished to open and close the shutter without affecting the sound system, he/she couldn't.  For these reasons, I decided to create an override mode for my system.  While in override mode, each separate system will be controlled via an specific switch designated to that specific system.  In normal mode, there will be only one button or switch which will changeover the projectors and the sound system together.</P>
+
+<P ALIGN="JUSTIFY"><HR ALIGN="LEFT" WIDTH="28%" SIZE=1>The projector control system itself will consist of three control centers.  The main control and status display center for the system will be located on the sound rack in the projection booth.  This will be responsible for displaying the current status of such devices like the exhaust fan, arc lamp, projector motor, exciter lamp, sound system, and the door.  From the sound rack, a projectionist will also be able to control the shutters, sound, and exciter lamps.  <I>Figure 3.2.1</I> outlines the basic layout of the system.</P>
+<P><HR ALIGN="LEFT" WIDTH="28%" SIZE=1></P>
+<P ALIGN="JUSTIFY">Each projector will have an auxiliary control system mounted on the side of the projector, just below the arc house.  The auxiliary control system will allow a projectionist to control the overrides for the changeover, exciters, and shutters, as well as mute the sound, or select the sound source (16mm,, 35mm, 70mm, or CD player).  This auxiliary system will not, however, monitor the status of the current projector's systems.  This will be left to the main control system.</P>
+<I><P ALIGN="JUSTIFY">Table 3.2.2</I> below shows the basic systems which will be monitored and controlled:</P>
+<B><FONT SIZE=2><P>Table 3.2.2 - Systems</P></B></FONT>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=638>
+<TR><TD WIDTH="25%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">What</B></FONT></TD>
+<TD WIDTH="25%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Type</B></FONT></TD>
+<TD WIDTH="26%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">How</B></FONT></TD>
+<TD WIDTH="24%" VALIGN="TOP" BGCOLOR="#000000">
+<B><FONT COLOR="#FFFFFF" SIZE=2><P ALIGN="CENTER">Status</B></FONT></TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Arc Lamp</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Monitor</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">CDS Cell</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">On/Off</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Arc Lamp</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Control</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Relay</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">On/Off</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Motor</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Monitor</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Pressure Switch</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">On/Off</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Motor</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Control</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Relay</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">On/Off</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Exciter Lamp</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Monitor</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">CDS Cell</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">On Full/Dimmed</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Exciter Lamp</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Control</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">DPDT Relay</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">On Full/Dimmed</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">*Shutters</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Control</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Relay</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Open/Closed</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Sound System</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Monitor</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Switch/CP55 Interface</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">P1/P2/Format/Mute</TD>
+</TR>
+<TR><TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Door</TD>
+<TD WIDTH="25%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Monitor</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Magnetic Sensor</TD>
+<TD WIDTH="24%" VALIGN="TOP">
+<P ALIGN="JUSTIFY">Open/Closed</TD>
+</TR>
+</TABLE>
+
+<P ALIGN="LEFT">* Control of shutters will allow for both to be closed, both to be open, or one to be open.</P>
+
+<P ALIGN="JUSTIFY">After reviewing the schematics of the projectors, I concluded that most of the power lines that I needed to control and/or monitor were available to me via the electrical panel inside the projector.  This helped minimize the number of wires that I needed to run between my control system and the projector, which in turn saves money in the overall design cost.  The interface to the sound system was very similar in that most of the control lines I needed to connect were easily accessible and located close to where the control system is located.</P>
+
+<P ALIGN="JUSTIFY">My interface to the sound system required 5 illuminated pushbuttons, per projector.  These buttons allow a projectionist to switch between different sound formats or mute the sound.  The indicator lights within the pushbuttons will alert the projectionist to which sound format the sound system is currently reading.</P>
+
+<P ALIGN="JUSTIFY">The interface to the motion picture projector itself was a bit more complicated.  I needed to install a lot of hardware without disturbing the current systems in the projectors.  In order to dim the exciter lamps when they are not in use, I used a DPDT relay to switch between the full power supply (about 7 volts at 5 amps), and a standard 5 volt DC power supply (dimmed voltage).  Controlling the shutters was fairly easy, as it was as simple as applying a voltage to a solenoid to open the shutter.   Since the shutter solenoid requires approximately 110 volts to open the shutter, I used a relay to control the shutters.</P>
+
+<B><I><P ALIGN="JUSTIFY">3.3&#9;Current Problems</P>
+</B></I><P ALIGN="JUSTIFY">There are a number of different problems which have arisen over the past few years with the current projector changeover system.  Since each of the current systems operates independent of each other, timing problems arise during changeovers.  For example, when a changeover is performed, the sound and shutters do not always change at the same instant.  This causes brief, but noticeable disruptions in the continuity of the film.</P>
+
+<P ALIGN="JUSTIFY">Human error also plays a role in some of the procedural problems currently experienced in the projection booth here at WPI.  When talking with some of the other projectionists, I learned that the door to the projector is not always kept closed when the projector is running.  This causes excess noise and light in the booth and the hall, two major enemies to quality film projection.  Finding a way to alert the crew chief (the person in charge of one specific showing of a film) of the movie to times when the projector door is left open is a something that needed to be accomplished.</P>
+
+<P ALIGN="JUSTIFY">Finally, there is no easy way to monitor the status of each system in the projector.  This is a problem because a projectionist cannot possibly be watching both projectors at the same time.  After talking to projectionists, both at WPI and at professional movie theaters, a need for a central monitoring system was made clear.  This central monitoring system would need to be in a location that is easily visible from almost anywhere in the projection booth.</P>
+
+<B><I><P ALIGN="JUSTIFY">3.4&#9;System Improvements</P>
+</B></I><P ALIGN="JUSTIFY">One of the major improvements I implemented was the design of a centralized computer control chip.  Using an Altera programmable logic chip as the main control unit, I wrote VHDL code that would monitor each of the projector's systems (motor, arc lamp, exciter lamp, shutter, door, exhaust fans, and emergency stop system) and display their status on a series of LEDs.  Based on the status of these systems, the system will control the motor, arc lamp, shutter, or exciter lamps.  For example, during a changeover, the sound, shutter, and exciter lamps will all be changed-over simultaneously.</P>
+
+<P ALIGN="JUSTIFY">The emergency stop switches currently in place in the projectors also play a major role in the control system.  If, while the projector is being operated, the motor suddenly stops while the shutter is open, the control system will turn off the arc lamp and close the shutter.  This is to prevent film from melting in front of the aperture, which used to be one of the major causes of fires in projection booths.</P>
+
+<B><I><P ALIGN="JUSTIFY">3.5&#9;Choosing Components</P>
+</B></I><P ALIGN="JUSTIFY">When designing a new system that will interface with an existing system, components must be chosen with care.  It would be undesirable to choose parts that have a high failure rate, excessive power consumption, or poor quality.</P>
+
+<I><P>3.5.1&#9;Relays</P>
+</I><P ALIGN="JUSTIFY">The design of this projector control system calls for a number of relays to be used to control the motor, arc lamp, shutter, and exciter lamp.  In order to pick the proper relays to be used, I needed to measure the current and voltage of each of these systems.  Since most of the components were rated for similar voltages and currents, I was able to use a common maximum, allowing the use of the same relays for each of the different systems.  Each of the relays has a rated coil voltage of 5V, which allows it to be controlled by logic level signals, like those from the Altera chip.  To ensure that the projectors may still be used in the event of control system failure, the relays may be shorted out to force operation (they are of the normally-open configuration).  Therefore, it normally requires power to operate a system in the projector.</P>
+
+<P ALIGN="JUSTIFY">It took me a few days and a few phone calls to determine which relays were right for my applications.  I used non-mechanical relays for added reliability.  The relays are rated for 100,000 operations at normal operating conditions.  Given that the projectors are only used once a week, these parts will probably out live the projectors.  I also needed to look at the size of the relays and their cost.  The relays I used are fairly expensive, about $16 each, but this was one of the cheapest I could find for what I needed.  Size restrictions existed because the relays needed to be mounted inside the projector.  If the relay was overly big, it would disturb other wires or parts in the projector.</P>
+
+<I><P>3.5.2&#9;CDS Cells</P>
+</I><P ALIGN="JUSTIFY">I decided to use four CDS cells in my design.  Two per projector, one for the exciter lamp and one for the arc lamp.  The purpose of these cells is to monitor the light level from both of these systems.  When I was looking into the different types of cells on the market, I chose ones that were cheap, small, reliable at high temperatures, and had a decent difference in resistance for light and dark environments.  The CDS cells I eventually purchased have a dark resistance of 100k<FONT FACE="Symbol">&#87;</FONT>
+ and a  light resistance of 10k<FONT FACE="Symbol">&#87;</FONT>
+.  By applying the right voltage, I was able to create a logic high when the light was on and a logic low when the light was off (or dimmed in the case of the exciter lamp).</P>
+
+<I><P>3.5.3&#9;Wire</P>
+</I><P ALIGN="JUSTIFY">Believe it or not, wire played a very important role in my design.  I needed to find multi-conductor cable at a cheap price.  My design required 100 feet of 25-conductor cable (standard computer cable – 26 AWG) and 50 feet of 15-conductor cable.  I also needed to choose wire that would not degrade in oily conditions or that would break easily when bent multiple different ways.  For the wire that goes into the arc house (for arc control and the arc sensor), I needed to make sure that the wire I was using could withstand fairly high temperatures.  Temperatures around the perimeter of the arc house can approach 60 degrees C.  I decided to use some 16 AWG cable that Lens and Lights has been using for their sound and lighting equipment.</P>
+<P ALIGN="JUSTIFY">For the connectors on the ends of the wires, I chose to use standard computer 15 and 25 pin connectors.  These connectors are very cheap and very easy to get a hold of, which provides for easy replacement in the event of a failure.</P>
+
+<I><P>3.5.4&#9;Buttons, Switches, LEDs</P>
+</I><P ALIGN="JUSTIFY">While functionality is very important in a design, creating a design that is visually appealing is also important.  One of the main reasons I chose the buttons and switches that I did were because of their size and looks.  They looked professional, and weren't too big or too small.  In the case of the illuminated pushbuttons on the auxiliary control system, they were cheapest colored, illuminated pushbuttons I could find.  One restriction on the type of pushbuttons and switches I got was they needed to be panel mountable.  Since only the main control system contains a small PC board, I could not use parts that were PC board mountable.</P>
+
+<P ALIGN="JUSTIFY">For the LEDs, I needed to choose LEDs which could easily be seen 20 or so feet away, in any direction.  This was mainly due to the fact that the LEDs were the main indicator used in my system.  If the projectionists can't see the LEDs, then my system is useless.  My system uses 32 T1 size LEDs on the main control system, and 3 T1 size LEDs on each of the auxiliary control systems.  I had originally planned on using blue LEDs for indicating override mode, however once I saw the price, I quickly sacrificed this portion of my design.</P>
+
+<I><P>3.5.5&#9;Xilinx vs. Altera</P>
+</I><P ALIGN="JUSTIFY">My original design called for a Xilinx XC4005E programmable logic device.  However, I learned that the Xilinx chip looses its memory when there is no power connected to it.  Since the equipment in the projection booth is turned off every week (since movies are usually only shown on Sundays), this would not be very practical.  I looked into alternatives, and found references to an EPROM interface to the Xilinx chip which allows programs to be downloaded to the Xilinx chip on powerup.  However, I was unable to find any specifications for such an interface.  After thoroughly searching the Xilinx web site and contacting technical support, I still did not have the answer I was looking for.  The Xilinx chip was to act as the brains for the control system, allowing for easy upgrades of its programming.  I could not have an unreliable chip which gets erased everytime the power is turned off.</P>
+
+<P ALIGN="JUSTIFY">Once I gave up on Xilinx, I turned to the Altera line of programmable devices.  The Altera chips are electrically erasable, which means they will retain their programming until told to erase it.  The basic functionality of both chips are the same, although the Xilinx chip is a bit faster.  Fortunately, speed is not a huge factor in my design, although I do not want a chip that will take hundreds of milliseconds to respond to user input.</P>
+
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>
